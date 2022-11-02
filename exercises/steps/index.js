@@ -17,6 +17,34 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n) {
+    for (let i = 0; i < n; i++) {
+        let txt = '';
+        for (let j = 0; j < n; j++) {
+            if(j > i ) {
+                txt += ' ';
+            } else {
+                txt += '#';
+            }
+        }
+        console.log(txt);
+    }
+}
+
+function steps(n) {
+  let txt = "";
+
+  for (let index = 0; index < n; index++) {
+    txt += "#";
+  }
+
+  for (let index = 0; index < n; index++) {
+
+    let first = txt.substring(0, index + 1);
+    let second = txt.substring(index + 1).replace(/#/g, " ");
+
+    console.log(first + second);
+  }
+}
 
 module.exports = steps;
