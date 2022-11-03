@@ -14,6 +14,41 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(n) {
+    
+    let mid = Math.floor(((2*n) - 1)/2);
+
+    for (let row = 0; row < n; row++) {
+        let txt = '';
+        for (let col = 0; col < 2*n-1; col++) {
+            if(col < (mid - row) || col > (mid + row) ) {
+                txt += ' ';
+            }
+            else {
+                txt += '#';
+            }
+        }
+        console.log(txt);
+    }
+}
+
+// Solution 2
+function pyramid(n, row=0, step='') {
+
+    if(row === n) {
+        return;
+    }
+    if(step.length === (2*n)-1) {
+        console.log(step);
+        return pyramid(n, row + 1);
+    }
+    if(step.length < Math.floor((((2*n) - 1)/2) - row) || step.length > Math.floor((((2*n) - 1)/2) + row)) {
+        step += ' ';
+    } else{
+        step += '#';
+    }
+    pyramid(n, row, step);
+}
 
 module.exports = pyramid;
+
