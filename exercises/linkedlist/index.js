@@ -54,7 +54,6 @@ class LinkedList {
     }
 
     removeLast() {
-        console.log("insideeee");
         if (!this.head) return;
         if (!this.head.next) {
             this.head = null;
